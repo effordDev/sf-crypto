@@ -1,5 +1,5 @@
 # Crypto (Salesforce)
-A Crypto Asset Market Cap provided by coinmarketcap.com
+A Crypto Asset Market Cap API provided by coinmarketcap.com
 
 <a href="https://githubsfdeploy.herokuapp.com">
   <img alt="Deploy to Salesforce"
