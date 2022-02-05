@@ -1,0 +1,15 @@
+:host {
+     --sds-c-button-brand-color-background: #E33FFD;
+     --sds-c-button-brand-color-background-hover: #8700B8;
+     --sds-c-button-brand-color-border: #E33FFD;
+     --sds-c-button-brand-color-border-hover: #8700B8;
+     --sds-c-button-text-color: white;
+}
+
+.slds-box {
+     background-color: white;
+}
+
+div.slds-box div.buttonWrapper {
+     text-align: center;
+}

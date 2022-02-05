@@ -1,0 +1,124 @@
+<apex:page lightningStylesheets="true">
+     <apex:slds />
+     <head>
+          <title>Web3 Metamask Login</title>
+     </head>
+
+     <style>
+          /* :host {
+               --sds-c-button-brand-color-background: #E33FFD;
+               --sds-c-button-brand-color-background-hover: #8700B8;
+               --sds-c-button-brand-color-border: #E33FFD;
+               --sds-c-button-brand-color-border-hover: #8700B8;
+               --sds-c-button-text-color: white;
+          } */
+
+          .content {
+               text-align: center;
+               padding: 30px;
+               overflow: hidden;
+          }
+
+          .myBtn {
+               position: relative;
+               display: inline-flex;
+               align-items: center;
+               padding-top: 0;
+               padding-right: 0;
+               padding-bottom: 0;
+               padding-left: 0;
+               background: none;
+               background-color: transparent;
+               background-clip: border-box;
+               border-color: transparent;
+               border-style: solid;
+               border-width: 1px;
+               border-radius: 0.25rem;
+               /* box-shadow: var(--sds-c-button-shadow); */
+               line-height: 1.875rem;
+               text-decoration: none;
+               color: white;
+               -webkit-appearance: none;
+               white-space: normal;
+               user-select: none;
+          
+
+               background-color: #E33FFD;
+               border-color: #E33FFD;
+               color: white;
+          }
+
+          .myBtn:hover {
+               background-color: #8700B8;
+               border-color: #8700B8;
+               color: white;
+          }
+     </style>
+        
+     <body>
+
+          <div class="content">
+               <button id='loginButton' onclick="" class="myBtn" style="color: white;">
+                    <b>Login with MetaMask</b>
+               </button>
+               <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+          </div>
+
+          <!-- <div class="slds-scope"> -->
+               
+                    <!-- <button id='loginButton' onclick="" class="slds-button slds-button_neutral">Login with MetaMask</button> -->
+                   
+                    
+          <!-- </div> -->
+          <script>
+               window.userWalletAddress = null
+               const loginButton = document.getElementById('loginButton')
+               const userWallet = document.getElementById('userWallet')
+           
+               function toggleButton() {
+                    if (!window.ethereum) {
+                         loginButton.innerText = 'MetaMask is not installed'
+                         loginButton.setAttribute('disabled', '')
+                         return false
+                    }
+               
+                    loginButton.addEventListener('click', loginWithMetaMask)
+               }
+           
+               async function loginWithMetaMask() {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                    .catch((e) => {
+                         console.error(e.message)
+                         return
+                    })
+                    if (!accounts) { return }
+           
+                    window.userWalletAddress = accounts[0]
+                    userWallet.innerText = window.userWalletAddress
+                    loginButton.innerText = 'Sign out of MetaMask'
+               
+                    loginButton.removeEventListener('click', loginWithMetaMask)
+
+                    setTimeout(() => {
+                         loginButton.addEventListener('click', signOutOfMetaMask)
+                    }, 200)
+               }
+           
+               function signOutOfMetaMask() {
+                    window.userWalletAddress = null
+                    userWallet.innerText = ''
+                    loginButton.innerText = 'Sign in with MetaMask'
+               
+                    loginButton.removeEventListener('click', signOutOfMetaMask)
+                    
+                    setTimeout(() => {
+                         loginButton.addEventListener('click', loginWithMetaMask)
+                    }, 200)
+               }
+           
+               window.addEventListener('DOMContentLoaded', () => {
+                    toggleButton()
+               });
+          </script>
+     </body>
+</apex:page>
