@@ -1,5 +1,7 @@
 # Crypto (Salesforce)
-A Crypto Asset Market Cap API provided by coinmarketcap.com
+A Crypto Console that provides the following:
+- A Crypto Asset Market Cap API provided by coinmarketcap.com
+- MetaMask Authentication (Starting Point) 
 
 <a href="https://githubsfdeploy.herokuapp.com">
   <img alt="Deploy to Salesforce"
@@ -8,6 +10,9 @@ A Crypto Asset Market Cap API provided by coinmarketcap.com
 
 ![Capture](https://user-images.githubusercontent.com/36901822/152548413-7a7d3962-437f-473f-a453-054ff620b488.PNG)
 
+## MetaMask
+Provides A login / logout button to accelerate MetaMask integration
+![image](https://user-images.githubusercontent.com/36901822/153019782-d916dacd-2df7-4b9f-9845-15b40d4982ce.png)
 
 ## Config
 Retrieve an API key from https://coinmarketcap.com/api  
