@@ -35,7 +35,7 @@ export default class MarketCap extends LightningElement {
                // console.log(this.coins)
           } catch (error) {
                console.error(error)
-               //hey fixed the bug #3
+               //hey fixed the bug #3 goodjob
           }
      }
 }
